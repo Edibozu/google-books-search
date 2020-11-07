@@ -9,15 +9,19 @@ const BooksSchema = new Schema({
   },
   authors: {
     type: Array,
+    trim: true,
   },
   description: {
     type: String,
+    trim: true,
   },
   image: {
     type: String,
+    trim: true,
   },
   link: {
     type: String,
+    trim: true,
   },
 });
 

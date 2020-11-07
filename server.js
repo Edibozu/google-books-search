@@ -21,6 +21,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/google-books-se
 
 const connection = mongoose.connection;
 
+app.use(require("./controllers/bookControllers.js"));
+
 connection.on("connected", () => {
   console.log("Mongoose successfully connected.");
 });
