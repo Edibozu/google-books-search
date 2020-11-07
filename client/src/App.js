@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import Navbar from "./components/Navbar"
 import axios from "axios";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom",
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   useEffect(() => {
@@ -16,7 +17,15 @@ function App() {
   }, []);
   return (
     <div className="App">
-      
+      <Router>
+        <Navbar />
+        
+        <Switch>
+          <Route/>
+          <Route/>
+        </Switch>
+        {/* <Footer /> */}
+      </Router>
     </div>
   );
 }
