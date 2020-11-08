@@ -1,0 +1,21 @@
+body {
+    background-image: url("./assets/images/bg.jpg");
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+  }
+
+  .list-group-item {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .card-header {
+   font-weight: bold;
+  }
+
+  .card-body {
+    font-weight: bold;
+  }
+

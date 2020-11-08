@@ -2,9 +2,30 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-// TODO: Create book route/ POST Route(save a book)
-router.post("/api/save", ({ body }, res) => {
-  db.Book.create(body)
+router.get("/api/books", (req, res) => {
+  db.Books.find({})
+    .then((allBooks) => {
+      console.log(allBooks);
+      res.json(allBooks);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        error: true,
+        data: null,
+        message: "There was an error saving the book",
+      });
+    });
+});
+
+router.post("/api/books", (req, res) => {
+  db.Books.create({
+    title: req.body.title,
+    authors: req.body.authors,
+    description: req.body.description,
+    image: req.body.image,
+    link: req.body.link
+  })
     .then((savedBook) => {
       console.log(savedBook);
       res.json(savedBook);
@@ -19,9 +40,8 @@ router.post("/api/save", ({ body }, res) => {
     });
 });
 
-// TODO: Delete book route/ DELETE Route(delete a book by id)
 router.delete("/api/books/:id", (req, res) => {
-  db.Book.findByIdAndDelete(req.params.id)
+  db.Books.findByIdAndDelete(req.params.id)
     .then((deleteBook) => {
       console.log(deleteBook);
       res.json(deleteBook);
@@ -36,21 +56,6 @@ router.delete("/api/books/:id", (req, res) => {
     });
 });
 
-// TODO: Get books route/ GET Route(get all saved books)
-router.get("/api/all", (req, res) => {
-  db.Book.find({})
-    .then((allBooks) => {
-      console.log(allBooks);
-      res.json(allBooks);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.json({
-        error: true,
-        data: null,
-        message: "There was an error saving the book",
-      });
-    });
-});
+
 
 module.exports = router;

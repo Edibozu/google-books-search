@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import BookData from "../components/BookData/BookData";
+import "../App.css";
 
 export default class Search extends Component {
     state = {
@@ -9,17 +10,17 @@ export default class Search extends Component {
         onSearch: true,
     };
 
-    componentDidMount() {
-        const queryBooks = "Harry Potter";
-        axios
-            .get(`https://www.googleapis.com/books/v1/volumes?q=${queryBooks}`)
-            .then((res) => {
-                console.log(res);
-                this.setState({
-                    books: res.data.items,
-                });
-            });
-    }
+    // componentDidMount() {
+    //     const queryBooks = "Harry Potter";
+    //     axios
+    //         .get(`https://www.googleapis.com/books/v1/volumes?q=${queryBooks}`)
+    //         .then((res) => {
+    //             console.log(res);
+    //             this.setState({
+    //                 books: res.data.items,
+    //             });
+    //         });
+    // }
 
     handleInputChange = (e) => {
         const bookName = e.target.value;
@@ -57,7 +58,7 @@ export default class Search extends Component {
 
         console.log(book);
 
-        axios.post("/api/save", {
+        axios.post("/api/books", {
             title: book.title,
             author: book.authors[0],
             description: book.description,
@@ -94,6 +95,8 @@ export default class Search extends Component {
                             key={book.id}
                             id={book.id}
                             title={book.volumeInfo.title}
+                            onSearch={this.state.onSearch}
+                            saveBook={this.saveBook}
                             authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             thumbnail={book.volumeInfo.imageLinks.thumbnail}

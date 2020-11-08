@@ -4,6 +4,7 @@ import Search from "./pages/Search"
 import Saved from "./pages/Saved"
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import './App.css';
 
 function App() {
   useEffect(() => {
@@ -21,12 +22,10 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        
         <Switch>
           <Route path="/search" component={Search}/>
           <Route path="/" component={Saved}/>
         </Switch>
-        {/* <Footer /> */}
       </Router>
     </div>
   );
