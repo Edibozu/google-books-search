@@ -6,6 +6,7 @@ export default class Search extends Component {
     state = {
         books: [],
         query: "",
+        onSearch: true,
     };
 
     componentDidMount() {

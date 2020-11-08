@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar"
 import Search from "./pages/Search"
+import Saved from "./pages/Saved"
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -23,7 +24,7 @@ function App() {
         
         <Switch>
           <Route path="/search" component={Search}/>
-          <Route/>
+          <Route path="/" component={Saved}/>
         </Switch>
         {/* <Footer /> */}
       </Router>
