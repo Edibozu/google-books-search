@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar"
+import Search from "./pages/Search"
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -21,7 +22,7 @@ function App() {
         <Navbar />
         
         <Switch>
-          <Route/>
+          <Route path="/search" component={Search}/>
           <Route/>
         </Switch>
         {/* <Footer /> */}

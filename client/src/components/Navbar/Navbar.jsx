@@ -18,7 +18,7 @@ const Navbar = () => {
             <br />
             <div className="container">
                 <h3 className="card-header text-center">
-                    (React) Google Books Search
+                    Google Books Search
                 </h3>
                 <h6 className="card-body text-center">
                     Search for and Save Books of Interest.
