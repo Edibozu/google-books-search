@@ -8,13 +8,22 @@ const Navbar = () => {
                 <h4 className="navbar-brand">Google Books</h4>
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Search <span className="sr-only">(current)</span></Link>
+                        <Link to="/search" className="nav-link">Search <span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/saved" className="nav-link">Saved</Link>
+                        <Link to="/" className="nav-link">Saved</Link>
                     </li>
                 </ul>
             </nav>
+            <br />
+            <div className="container">
+                <h3 className="card-header text-center">
+                    (React) Google Books Search
+                </h3>
+                <h6 className="card-body text-center">
+                    Search for and Save Books of Interest.
+                </h6>
+            </div>
         </div>
     );
 };
