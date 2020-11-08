@@ -30,22 +30,18 @@ export default function BookData(props) {
         /><br /><br />
         <h6>By: {props.authors}</h6>
         <p>{props.description}</p>
-        <button className="btn btn-primary btn-text" onClick={viewBook}>Visit Link</button>
+        <button className="btn btn-info btn-text fas fa-external-link-alt" onClick={viewBook}> Visit Link</button>
         {props.onSearch ? (
           <button
-            className='btn btn-success btn-text'
+            className='btn btn-success btn-text fas fa-save'
             onClick={() => props.saveBook(props.id)}
-          >
-            Save Book
-          </button>
+          > Save Book</button>
         ) : (
             <button
               id={props.id}
-              className='btn btn-danger btn-text'
+              className='btn btn-danger btn-text fas fa-trash-alt'
               onClick={deleteBook}
-            >
-              Delete
-            </button>
+            >  Delete</button>
           )}
       </li>
       <br />

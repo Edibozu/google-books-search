@@ -83,11 +83,9 @@ export default class Search extends Component {
                         placeholder='Search for a book'
                     />
                     <button
-                        className='btn btn-text btn-success'
+                        className='btn btn-text btn-primary fas fa-search'
                         onClick={this.handleSubmit}
-                    >
-                        Search
-            </button><br /><br />
+                        > Search</button><br /><br />
                 </form>
                 <ul className='list-group'>
                     {this.state.books.map((book) => (
