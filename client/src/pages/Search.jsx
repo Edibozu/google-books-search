@@ -46,28 +46,46 @@ export default class Search extends Component {
         }
     };
 
-    saveBook = (e) => {
-        e.preventDefault();
+    saveBook = (bookId) => {
+
+        const savedBookData = this.state.books.filter(book => {
+            return book.id === bookId
+        });
+
+        const book = savedBookData[0].volumeInfo;
+
+        console.log(book);
+
+        axios.post("/api/save", {
+            title: book.title,
+            author: book.authors[0],
+            description: book.description,
+            image: book.imageLinks.thumbnail,
+            link: book.infoLink
+        }).then(res => {
+            console.log(res)
+        }).catch(err => {
+            console.log(err);
+        })
     };
 
     render() {
         return (
-            <div>
-                <h2>Books</h2>
+            <div className="container text-center">
                 <form>
                     <input
                         type='text'
                         name='Book Search'
                         value={this.state.query}
                         onChange={this.handleInputChange}
-                        placeHolder='Search for a book'
+                        placeholder='Search for a book'
                     />
                     <button
                         className='btn btn-text btn-success'
                         onClick={this.handleSubmit}
                     >
                         Search
-            </button>
+            </button><br /><br />
                 </form>
                 <ul className='list-group'>
                     {this.state.books.map((book) => (
@@ -75,10 +93,10 @@ export default class Search extends Component {
                             key={book.id}
                             id={book.id}
                             title={book.volumeInfo.title}
-                            author={book.volumeInfo.authors}
+                            authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             thumbnail={book.volumeInfo.imageLinks.thumbnail}
-                            link={book.saleInfo.byLink}
+                            link={book.volumeInfo.infoLink}
                         />
                     ))}
                 </ul>
